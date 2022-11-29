@@ -8,9 +8,10 @@ from node.types import *
 
 class Database:
 
-    def __init__(self, *, server: str, user: str, password: str, database: str, schema: str,
+    def __init__(self, *, server: str, port:str, user: str, password: str, database: str, schema: str,
                  message_callback: callable):
         self.server = server
+        self.port = port
         self.user = user
         self.password = password
         self.database = database
@@ -20,7 +21,7 @@ class Database:
 
     async def connect(self):
         try:
-            self.pool = await asyncpg.create_pool(host=self.server, user=self.user, password=self.password,
+            self.pool = await asyncpg.create_pool(host=self.server, port=self.port, user=self.user, password=self.password,
                                                   database=self.database, server_settings={'search_path': self.schema},
                                                   min_size=1, max_size=4)
         except Exception as e:

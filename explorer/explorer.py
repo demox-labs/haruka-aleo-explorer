@@ -17,7 +17,7 @@ class Explorer:
         self.task = None
         self.message_queue = asyncio.Queue()
         self.node = None
-        self.db = Database(server=os.environ["DB_HOST"], user=os.environ["DB_USER"], password=os.environ["DB_PASS"],
+        self.db = Database(server=os.environ["DB_HOST"], port=os.environ["DB_PORT"], user=os.environ["DB_USER"], password=os.environ["DB_PASS"],
                            database=os.environ["DB_DATABASE"], schema=os.environ["DB_SCHEMA"],
                            message_callback=self.message)
 
