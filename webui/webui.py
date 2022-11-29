@@ -828,7 +828,7 @@ async def startup():
 
     global db
     # different thread so need to get a new database instance
-    db = Database(server=os.environ["DB_HOST"], user=os.environ["DB_USER"], password=os.environ["DB_PASS"],
+    db = Database(server=os.environ["DB_HOST"],port=os.environ["DB_PORT"], user=os.environ["DB_USER"], password=os.environ["DB_PASS"],
                   database=os.environ["DB_DATABASE"], schema=os.environ["DB_SCHEMA"],
                   message_callback=noop)
     await db.connect()
