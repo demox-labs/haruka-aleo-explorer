@@ -22,8 +22,8 @@ class DatabaseMigrate(DatabaseBase):
             (1, self.migrate_1_add_rejected_original_id),
             (2, self.migrate_2_set_on_delete_cascade),
             (3, self.migrate_3_fix_finalize_operation_function),
-            (4, self.migrate_4_add_solution_id),
-            (5, self.migrate_5_full_public_balance_stats_tracking),
+            # (4, self.migrate_4_add_solution_id),
+            (4, self.migrate_5_full_public_balance_stats_tracking),
         ]
         async with self.pool.connection() as conn:
             async with conn.cursor() as cur:
@@ -104,8 +104,8 @@ WHERE tables.oid = pg_trigger.tgrelid
         try:
             async with conn.transaction():
                 await conn.execute("""
-                    ALTER TABLE solution
-                    ADD COLUMN solution_id TEXT NULL
+                    # ALTER TABLE solution
+                    # ADD COLUMN solution_id TEXT NULL
                 """)
         except Exception as e:
             raise RuntimeError(f"Failed to add column 'solution_id' to 'solution': {e}")

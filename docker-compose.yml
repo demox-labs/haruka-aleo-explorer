@@ -9,6 +9,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
     restart: unless-stopped
+    entrypoint: ["/bin/bash", "-c", "rm -rf /var/lib/postgresql/data/* && docker-entrypoint.sh postgres"]
 
   redis:
     image: redis:7.2-alpine

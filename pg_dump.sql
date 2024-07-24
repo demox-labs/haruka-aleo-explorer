@@ -27,14 +27,14 @@ CREATE SCHEMA explorer;
 -- Name: hint_plan; Type: SCHEMA; Schema: -; Owner: -
 --
 
-CREATE SCHEMA hint_plan;
+-- CREATE SCHEMA hint_plan;
 
 
 --
 -- Name: pg_hint_plan; Type: EXTENSION; Schema: -; Owner: -
 --
 
-CREATE EXTENSION IF NOT EXISTS pg_hint_plan WITH SCHEMA hint_plan;
+-- CREATE EXTENSION IF NOT EXISTS pg_hint_plan WITH SCHEMA hint_plan;
 
 
 --

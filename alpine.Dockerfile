@@ -28,9 +28,8 @@ RUN set -eux; \
     git clone https://github.com/HarukaMa/aleo-explorer-rust.git ; \
     pip wheel -w /dist/ ./aleo-explorer-rust 
 
-# Clones repo
-RUN set -eux; \
-    git clone https://github.com/HarukaMa/aleo-explorer.git /app/ 
+# Copies local repo instead of cloning
+COPY . /app/
 
 # Builds requirements wheels
 RUN set -eux; \
